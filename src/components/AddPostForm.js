@@ -17,7 +17,7 @@ const AddPostForm = () => {
 
     const [reqtype,setReqtype] = useState("post")
 
-    async const add = (e) => {
+     const add = async(e) => {
         if(reqtype === "post"){
         console.log( JSON.stringify(formData))
         await axios.post("http://52.206.79.151:8080/api/posts/", JSON.stringify(formData),{headers: {'Content-Type': 'application/json',}}).then(res => console.log(res))
