@@ -19,8 +19,8 @@ setModalState({show:true,id:post.id,title:post.title,description:post.descriptio
    
     }
 
-    const deletePost = (id) => {  
-        axios.delete(`http://l52.206.79.151:8080/api/posts/${id}`).then(window.location.reload(false))
+ async const deletePost = (id) => {  
+       await axios.delete(`http://l52.206.79.151:8080/api/posts/${id}`).then(window.location.reload(false))
         }
     return(
         

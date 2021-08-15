@@ -17,15 +17,15 @@ const AddPostForm = () => {
 
     const [reqtype,setReqtype] = useState("post")
 
-    const add = (e) => {
+    async const add = (e) => {
         if(reqtype === "post"){
         console.log( JSON.stringify(formData))
-        axios.post("http://52.206.79.151:8080/api/posts/", JSON.stringify(formData),{headers: {'Content-Type': 'application/json',}}).then(res => console.log(res))
+        await axios.post("http://52.206.79.151:8080/api/posts/", JSON.stringify(formData),{headers: {'Content-Type': 'application/json',}}).then(res => console.log(res))
          //e.preventDefault()
         }
         if(reqtype === "put"){
             console.log( JSON.stringify(formData))
-            axios.put("http://52.206.79.151:8080/api/posts/", JSON.stringify(formData),{headers: {'Content-Type': 'application/json',}}).then(res => console.log(res))
+           await axios.put("http://52.206.79.151:8080/api/posts/", JSON.stringify(formData),{headers: {'Content-Type': 'application/json',}}).then(res => console.log(res))
             //e.preventDefault()
         }
     }
