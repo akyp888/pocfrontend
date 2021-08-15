@@ -10,20 +10,17 @@ function App() {
        <div className = "container">
   <a class="navbar-brand" href="#">Add Posts</a>
   </div>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
   </nav>
       </div>
+
+      
+
      <AddPostForm />
      <div className="container" style={{width: 50 + "%",margin:"auto"}} >
      <nav class="navbar navbar navbar-dark bg-primary navbar-expand-lg " style={{borderRadius:5+"px",marginBottom:5+"%"}}>
        <div className = "container">
   <a class="navbar-brand" href="#">All Posts</a>
   </div>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
   </nav>
       </div>
      <BlogPostCards />

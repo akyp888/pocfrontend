@@ -9,15 +9,25 @@ import { useState } from "react";
 const AddPostForm = () => {
     const [formData, setFormData] = useState(
         {
+            id:undefined,
             title:undefined,
             description:undefined
         }
     )
-    const add = (e) => {
 
+    const [reqtype,setReqtype] = useState("post")
+
+    const add = (e) => {
+        if(reqtype === "post"){
         console.log( JSON.stringify(formData))
         axios.post("http://localhost:8080/api/posts/", JSON.stringify(formData),{headers: {'Content-Type': 'application/json',}}).then(res => console.log(res))
-        //e.preventDefault()
+         //e.preventDefault()
+        }
+        if(reqtype === "put"){
+            console.log( JSON.stringify(formData))
+            axios.put("http://localhost:8080/api/posts/", JSON.stringify(formData),{headers: {'Content-Type': 'application/json',}}).then(res => console.log(res))
+            //e.preventDefault()
+        }
     }
           
 
@@ -25,6 +35,11 @@ const AddPostForm = () => {
     <div className="container" style={{width: 50 + "%",margin:"auto"}}>
         
     <form style={{marginBottom:5+"%"}} onSubmit={add} >
+    <div className="form-group">
+    
+    <input type="text" className="form-control" placeholder="ID" onChange={e=>(setFormData({...formData,id : e.target.value}))} value={formData.id}/>
+  </div>
+  <br/>
   <div className="form-group">
     
     <input type="text" className="form-control" placeholder="Title" onChange={e=>(setFormData({...formData,title : e.target.value}))} value={formData.title}/>
@@ -35,7 +50,8 @@ const AddPostForm = () => {
     <textarea type="text" className="form-control" placeholder="Description" onChange={e=>(setFormData({...formData,description : e.target.value}))} value={formData.description}/>
   </div>
  <br />
-  <button type="submit" className="btn btn-primary" >Add Post</button>
+  <button type="submit" className="btn btn-primary" onClick={e=>(setReqtype("post"))} style={{ margin : 3 + "%"}}>Add Post</button> 
+  <button type="submit" className="btn btn-success" onClick={e=>(setReqtype("put"))}>Update Post</button>
 </form>
 </div>
     )
