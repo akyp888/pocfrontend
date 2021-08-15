@@ -4,7 +4,6 @@ import Modal from "react-bootstrap/Modal";
 
 const BlogPostCard = ({postdata}) => {
      const [modalState,setModalState] = useState({
-         show:false,
          id:undefined,
          title:undefined,
          description:undefined
