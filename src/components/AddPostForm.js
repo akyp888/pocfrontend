@@ -20,12 +20,12 @@ const AddPostForm = () => {
     const add = (e) => {
         if(reqtype === "post"){
         console.log( JSON.stringify(formData))
-        axios.post("127.0.0.1:8080/api/posts/", JSON.stringify(formData),{headers: {'Content-Type': 'application/json',}}).then(res => console.log(res))
+        axios.post("52.206.79.151:8080/api/posts/", JSON.stringify(formData),{headers: {'Content-Type': 'application/json',}}).then(res => console.log(res))
          //e.preventDefault()
         }
         if(reqtype === "put"){
             console.log( JSON.stringify(formData))
-            axios.put("http://localhost:8080/api/posts/", JSON.stringify(formData),{headers: {'Content-Type': 'application/json',}}).then(res => console.log(res))
+            axios.put("http://52.206.79.151:8080/api/posts/", JSON.stringify(formData),{headers: {'Content-Type': 'application/json',}}).then(res => console.log(res))
             //e.preventDefault()
         }
     }

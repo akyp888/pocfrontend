@@ -2,7 +2,7 @@ import BlogPostCard from "./BlogPostCard"
 import axios from 'axios';
 import { useState } from "react";
 
-const getallposts = axios.get("http://54.88.30.241:8080/api/posts/")
+const getallposts = axios.get("http://52.206.79.151:8080/api/posts/")
 
 const BlogPostCards = () => {
     const [posts,setPosts] = useState([]);
