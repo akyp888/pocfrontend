@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
-
+import AddPostForm from './components/AddPostForm';
+import BlogPostCards from './components/BlogPostCards';
+import NavBar from './components/NavBar';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-           <code>src/App.js</code> ß
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={{backgroundColor:"#E7E9EB"}}>
+      <NavBar />
+      <div className="container" style={{width: 50 + "%",margin:"auto"}} >
+     <nav class="navbar navbar navbar-dark bg-primary navbar-expand-lg " style={{borderRadius:5+"px",marginBottom:5+"%"}}>
+       <div className = "container">
+  <a class="navbar-brand" href="#">Add Posts</a>
+  </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  </nav>
+      </div>
+     <AddPostForm />
+     <div className="container" style={{width: 50 + "%",margin:"auto"}} >
+     <nav class="navbar navbar navbar-dark bg-primary navbar-expand-lg " style={{borderRadius:5+"px",marginBottom:5+"%"}}>
+       <div className = "container">
+  <a class="navbar-brand" href="#">All Posts</a>
+  </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  </nav>
+      </div>
+     <BlogPostCards />
     </div>
   );
 }
