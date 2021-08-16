@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-
+import { connect } from "react-redux";
 
 
 
@@ -58,6 +58,5 @@ const AddPostForm = () => {
 </div>
     )
 }
-
 
 export default AddPostForm;
