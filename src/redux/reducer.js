@@ -11,8 +11,10 @@ switch (action.type) {
     case "GET_ALL_POSTS":
         //return console.log(action.payload)
         return action.payload
-   
-    default:
+    case "ADD_POST":
+        return [...state, action.payload]
+
+        default:
         return state
 }
 

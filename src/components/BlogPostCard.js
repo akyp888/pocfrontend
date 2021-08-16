@@ -20,7 +20,7 @@ setModalState({show:true,id:post.id,title:post.title,description:post.descriptio
     }
 
     const deletePost = (id) => {  
-        axios.delete(`http://52.206.79.151:8080/api/posts/${id}`).then(response => {console.log(response);window.location.reload(false)})
+        axios.delete(`http://localhost:8080/api/posts/${id}`)
         }
     return(
         
@@ -33,7 +33,7 @@ setModalState({show:true,id:post.id,title:post.title,description:post.descriptio
     <div class="b">{postdata.description}</div>
     <p className="card-text"></p>
     <a href="#" className="btn btn-primary" style={{ margin : 3 + "%"}} onClick = {()=>(showPost(postdata))} >view</a>
-    <a href="#" className="btn btn-danger" onClick={()=>{return(deletePost(postdata.id))}}>delete</a>
+    <a className="btn btn-danger" onClick={()=>{return(deletePost(postdata.id))}}>delete</a>
   </div>
 </div>
 <Modal show={modalState.show}>
