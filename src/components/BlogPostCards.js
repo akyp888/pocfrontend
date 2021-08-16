@@ -1,12 +1,16 @@
 import BlogPostCard from "./BlogPostCard"
 import axios from 'axios';
-import { useState } from "react";
+import { useEffect } from "react";
+import { connect } from "react-redux";
+import store from "../redux/store";
+import { getallposts } from "../redux/actions";
 
-const getallposts = axios.get("http://52.206.79.151:8080/api/posts/")
 
-const BlogPostCards = () => {
-    const [posts,setPosts] = useState([]);
-    getallposts.then(response => setPosts(response.data))
+const BlogPostCards = ({posts}) => {
+    
+    useEffect(()=>{
+        store.dispatch(getallposts())
+    })
     return(
             <div className="container" style={{width:50+"%",margin:"auto"}}>
                 <div className="row" >
@@ -15,4 +19,10 @@ const BlogPostCards = () => {
             </div>
     )
 }
-export default BlogPostCards;
+const mapstatetoprops=state=>{
+    return{
+      posts:state.reducer
+    }
+  }
+  
+  export default connect(mapstatetoprops)(BlogPostCards);
