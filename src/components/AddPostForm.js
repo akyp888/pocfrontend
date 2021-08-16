@@ -20,14 +20,14 @@ const AddPostForm = () => {
      const add = async(e) => {
         if(reqtype === "post"){
         console.log( JSON.stringify(formData))
-        await axios.post("http://52.206.79.151:8080/api/posts/", JSON.stringify(formData),{headers: {'Content-Type': 'application/json',}}).then(response => {console.log(response)})
-        //e.preventDefault()
+        await axios.post("http://52.206.79.151:8080/api/posts/", JSON.stringify(formData),{headers: {'Content-Type': 'application/json',}}).then(response => {console.log(response);window.location.reload(false)})
+        e.preventDefault()
       
         }
         if(reqtype === "put"){
             console.log( JSON.stringify(formData))
-           await axios.put("http://52.206.79.151:8080/api/posts/", JSON.stringify(formData),{headers: {'Content-Type': 'application/json',}}).then(response => console.log(response))
-        //e.preventDefault()
+           await axios.put("http://52.206.79.151:8080/api/posts/", JSON.stringify(formData),{headers: {'Content-Type': 'application/json',}}).then(response => {console.log(response);window.location.reload(false)})
+        e.preventDefault()
             
         }
     }
