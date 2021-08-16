@@ -32,7 +32,7 @@ setModalState({show:true,id:post.id,title:post.title,description:post.descriptio
     <h6 className="card-subtitle text-muted "><small>description:</small></h6>
     <div class="b">{postdata.description}</div>
     <p className="card-text"></p>
-    <a href="#" className="btn btn-primary" style={{ margin : 3 + "%"}} onClick = {()=>(showPost(postdata))} >view</a>
+    <a className="btn btn-primary" style={{ margin : 3 + "%"}} onClick = {()=>(showPost(postdata))} >view</a>
     <a className="btn btn-danger" onClick={()=>{return(deletePost(postdata.id))}}>delete</a>
   </div>
 </div>
