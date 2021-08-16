@@ -21,6 +21,7 @@ function App() {
        <div className = "container">
   <a class="navbar-brand" href="#">All Posts</a>
   </div>
+
   </nav>
       </div>
      <BlogPostCards />
