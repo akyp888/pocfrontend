@@ -22,7 +22,7 @@ const AddPostForm = () => {
         }
         if(reqtype === "put"){
             console.log( JSON.stringify(formData))
-           await axios.put("http://52.206.79.151:8080/api/posts/", JSON.stringify(formData),{headers: {'Content-Type': 'application/json',}}).then(response => console.log(response))
+           await axios.put("http://52.206.79.151:8080/api/posts/", JSON.stringify(formData),{headers: {'Content-Type': 'application/json',}})
         e.preventDefault()
             
         }
