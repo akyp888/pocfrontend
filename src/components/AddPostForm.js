@@ -11,19 +11,40 @@ const AddPostForm = () => {
             description:undefined
         }
     )
-
+    const [alert, setAlert] = useState(false);
     const [reqtype,setReqtype] = useState("post")
+    const [msg,setMsg] = useState("Post added")
+    const notifypost = (title) => {
+      setMsg(`Post ${title} added`)
+      setAlert(true);
+      setTimeout(() => {
+      setAlert(false);
+    }, 3000);
+  
+  }
+  const notifyput = (title) => {
+    setMsg(`Post ${title} updated`)
+    setAlert(true);
+    setTimeout(() => {
+    setAlert(false);
+  }, 3000);
+
+}
 
      const add = async(e) => {
       e.preventDefault()
+      
         if(reqtype === "post"){
-        console.log( JSON.stringify(formData))
-        await axios.post("http://52.206.79.151:8080/api/posts/", JSON.stringify(formData),{headers: {'Content-Type': 'application/json',}})
+       
+         await axios.post("http://52.206.79.151:8080/api/posts/", JSON.stringify(formData),{headers: {'Content-Type': 'application/json',}}).then(response=>notifypost(response.data.title))
+ 
         e.preventDefault()
         }
         if(reqtype === "put"){
-            console.log( JSON.stringify(formData))
-           await axios.put("http://52.206.79.151:8080/api/posts/", JSON.stringify(formData),{headers: {'Content-Type': 'application/json',}})
+         
+          await axios.put("http://52.206.79.151:8080/api/posts/", JSON.stringify(formData),{headers: {'Content-Type': 'application/json',}}).then(response=>notifyput(response.data.title))
+           
+     
         e.preventDefault()
             
         }
@@ -34,6 +55,7 @@ const AddPostForm = () => {
     <div className="container" style={{width: 50 + "%",margin:"auto"}}>
         
     <form style={{marginBottom:5+"%"}} onSubmit={add} >
+    {alert && <div class="alert alert-primary" role="alert">{msg}</div>}
     <div className="form-group">
     
     <input type="text" className="form-control" placeholder="ID - can be left empty to add posts" onChange={e=>(setFormData({...formData,id : e.target.value}))} value={formData.id}/>
