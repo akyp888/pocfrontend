@@ -39,7 +39,7 @@ const AddPostForm = () => {
     <form style={{marginBottom:5+"%"}} onSubmit={add} >
     <div className="form-group">
     
-    <input type="text" className="form-control" placeholder="ID" onChange={e=>(setFormData({...formData,id : e.target.value}))} value={formData.id}/>
+    <input type="text" className="form-control" placeholder="ID - can be left empty to add posts" onChange={e=>(setFormData({...formData,id : e.target.value}))} value={formData.id}/>
   </div>
   <br/>
   <div className="form-group">
