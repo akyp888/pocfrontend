@@ -20,7 +20,7 @@ setModalState({show:true,id:post.id,title:post.title,description:post.descriptio
     }
 
     const deletePost = (id) => {  
-        axios.delete(`http://52.206.79.151/:8080/api/posts/${id}`)
+        axios.delete(`http://52.206.79.151:8080/api/posts/${id}`)
         }
     return(
         
